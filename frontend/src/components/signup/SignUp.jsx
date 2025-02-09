@@ -7,7 +7,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 const SignUp = () => {
   const navigate = useNavigate()
-  const Url_toregister = "http://localhost:3000/user/register"
+  const Url_toregister = "https://hotel-booking-backend-gne4.onrender.com/user/register"
   const [data, setdata] = useState({
     name: "",
     email: "",
