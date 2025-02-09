@@ -21,7 +21,7 @@ const OurHotels = () => {
                     return (
                     <Link to={`/`+places.place_name} className='Card-List'  key={places._id}>
                         <div className='Image-List'>
-                            <img src={`http://localhost:3000/images/${places.place_image}`} alt="hyd" />
+                            <img src={`https://hotel-booking-backend-gne4.onrender.com/images/${places.place_image}`} alt="hyd" />
                         </div>
                         <p>{places.place_name}</p>
                     </Link>
@@ -33,7 +33,7 @@ const OurHotels = () => {
                     return(
                         <Link to={`/`+hotel.place_name+`/`+hotel.hotel_location+`/Book`} className='Card-List' key={hotel._id}>
                         <div className='Image-List'>
-                        <img src={`http://localhost:3000/images/${hotel.hotel_image}`} alt={hotel.hotel_name} />
+                        <img src={`https://hotel-booking-backend-gne4.onrender.com/images/${hotel.hotel_image}`} alt={hotel.hotel_name} />
                         </div>
                         <p>{hotel.place_name} - {hotel.hotel_location}</p>
                         </Link>
