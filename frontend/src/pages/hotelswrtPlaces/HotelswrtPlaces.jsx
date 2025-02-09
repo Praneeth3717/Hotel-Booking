@@ -8,7 +8,7 @@ const HotelswrtPlaces = () => {
     const [hotels,sethotels]=useState([])
     const {place_name}=useParams()
     useEffect(()=>{
-        axios.get(`http://localhost:3000/hotels/getHotelswrtPlaces/${place_name}`)
+        axios.get(`https://hotel-booking-backend-gne4.onrender.com/hotels/getHotelswrtPlaces/${place_name}`)
         .then((response)=>{
           sethotels(response.data.data)
         })
@@ -25,7 +25,7 @@ const HotelswrtPlaces = () => {
         return(
             <div className='All-Hotels' key={hotel._id}>
             <div className='Hotel-Image'>
-                <img src={`http://localhost:3000/images/${hotel.hotel_image}`} alt="Hyd" />
+                <img src={`https://hotel-booking-backend-gne4.onrender.com/images/${hotel.hotel_image}`} alt="Hyd" />
             </div>
             <div className='Hotel-description'>
                 <div className='Hotel-About'>
