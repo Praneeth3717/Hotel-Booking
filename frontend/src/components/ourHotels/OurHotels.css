@@ -1,0 +1,68 @@
+.OurHotels{
+    margin-top: 50px;
+    overflow: hidden;
+}
+.OurHotels-Heading p{
+    font-size: 25px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    margin-left: 40px;
+}
+.OurHotels-List{
+    display: flex;
+    margin-left: 40px;
+    gap: 40px;
+}
+.OurHotels-List p{
+    cursor: pointer;
+}
+.Image-List{
+    overflow: hidden;
+    width:300px;
+    height:350px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px rgb(0,0,0,0.5);
+}
+.Image-List img{
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+.Image-List img:hover{
+    transform: scale(1.1);
+}
+.Card-List{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    text-decoration: none;
+    color: inherit; 
+}
+.Places-List{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+}
+.Places-List::-webkit-scrollbar {
+    display: none;
+}
+.All-Hotels-List{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+}
+.All-Hotels-List::-webkit-scrollbar {
+    display: none;
+}
+.Change-Content{
+    display: none;
+}
