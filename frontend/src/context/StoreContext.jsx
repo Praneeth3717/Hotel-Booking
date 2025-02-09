@@ -14,10 +14,10 @@ const StoreContextProvider=(props)=>{
     const [checkOut, setCheckOut] = useState(sessionStorage.getItem("checkOut") || "");
     const [guests, setGuests] = useState(sessionStorage.getItem("guests") || 1);
     const [User,setUser]=useState({})
-    const Url_getRoom="http://localhost:3000/rooms/getRooms"
-    const Url_getHotels="http://localhost:3000/hotels/getHotels"
-    const Url_getPlaces="http://localhost:3000/hotels/getPlaces"
-    const Url_getUser="http://localhost:3000/user/getUser"
+    const Url_getRoom="https://hotel-booking-backend-gne4.onrender.com/rooms/getRooms"
+    const Url_getHotels="https://hotel-booking-backend-gne4.onrender.com/hotels/getHotels"
+    const Url_getPlaces="https://hotel-booking-backend-gne4.onrender.com/hotels/getPlaces"
+    const Url_getUser="https://hotel-booking-backend-gne4.onrender.com/user/getUser"
     const fetchData=async()=>{
         try {
             const token = localStorage.getItem("token");
