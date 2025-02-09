@@ -9,7 +9,7 @@ const Payments = () => {
   const location = useLocation();
   const { Room_Type, Room_Price, Room_Image } = location.state;
   const totalPrice = (parseFloat(Room_Price) + 200 + 15.7).toFixed(2);
-  const imageUrl = `http://localhost:3000/images/${Room_Image}`;
+  const imageUrl = `https://hotel-booking-backend-gne4.onrender.com/images/${Room_Image}`;
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -47,7 +47,7 @@ const Payments = () => {
     };
 
     try {
-        const response = await axios.post("http://localhost:3000/user/orderdone", bookingDetails);
+        const response = await axios.post("https://hotel-booking-backend-gne4.onrender.com/user/orderdone", bookingDetails);
         
         if (response.status === 201) {
             alert("Payment Completed Successfully!");
