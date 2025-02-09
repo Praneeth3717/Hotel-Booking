@@ -4,7 +4,7 @@ import uploadImg from '../../assets/Uploadimg.jpg'
 import axios from 'axios'
 
 const AddRooms = () => {
-    const Add_Url="http://localhost:3000/rooms/addRoom"
+    const Add_Url="https://hotel-booking-backend-gne4.onrender.com/rooms/addRoom"
     const [image,setimage]=useState(false)
     const [formData, setFormData] = useState({
         room_type: "",
