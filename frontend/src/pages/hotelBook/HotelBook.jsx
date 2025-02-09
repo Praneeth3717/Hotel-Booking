@@ -13,7 +13,7 @@ const HotelBook = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/hotels/getHotel/${hotel_location}`)
+      .get(`https://hotel-booking-backend-gne4.onrender.com/hotels/getHotel/${hotel_location}`)
       .then((response) => {
         setHotelDetail(response.data.data);
       })
@@ -69,7 +69,7 @@ const HotelBook = () => {
       <div className="About_Hotel">
         <div className="Hotel_Image">
           <img
-            src={`http://localhost:3000/images/${hotel_detail.hotel_image}`}
+            src={`https://hotel-booking-backend-gne4.onrender.com/images/${hotel_detail.hotel_image}`}
             alt="Hotel"
           />
         </div>
@@ -119,7 +119,7 @@ const HotelBook = () => {
           {Room_list.map((room) => (
             <div className="Each_Stay" key={room._id}>
               <div className="Stay_image">
-                <img src={`http://localhost:3000/images/${room.image}`} alt="Room" />
+                <img src={`https://hotel-booking-backend-gne4.onrender.com/images/${room.image}`} alt="Room" />
               </div>
               <div className="Stay_desc">
                 <h2 className="Room-title">{room.room_type}</h2>
