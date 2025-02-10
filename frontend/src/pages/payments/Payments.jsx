@@ -5,11 +5,11 @@ import { useLocation } from "react-router-dom";
 import axios from 'axios'
 
 const Payments = () => {
-  const { checkIn, checkOut, guests } = useContext(StoreContext);
+  const { checkIn, checkOut, guests,Url_Host } = useContext(StoreContext);
   const location = useLocation();
   const { Room_Type, Room_Price, Room_Image } = location.state;
   const totalPrice = (parseFloat(Room_Price) + 200 + 15.7).toFixed(2);
-  const imageUrl = `http://localhost:3000/images/${Room_Image}`;
+  const imageUrl = `${Url_Host}/images/${Room_Image}`;
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -47,7 +47,7 @@ const Payments = () => {
     };
 
     try {
-        const response = await axios.post("http://localhost:3000/user/orderdone", bookingDetails);
+        const response = await axios.post(`${Url_Host}/user/orderdone`, bookingDetails);
         
         if (response.status === 201) {
             alert("Payment Completed Successfully!");

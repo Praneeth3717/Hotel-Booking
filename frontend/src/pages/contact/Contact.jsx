@@ -61,8 +61,8 @@ const Contact = () => {
 
         <div className="contact-info">
           <h2>Our Contact Details</h2>
-          <p>📍 Location: 123, Hotel Street, New Delhi, India</p>
-          <p>📧 Email: support@hotelbooking.com</p>
+          <p>📍 Naimnagar,Hanumkonda,Warangal</p>
+          <p>📧 Email: praneethchandupatla@gmail.com</p>
           <p>📞 Phone: +91 9963310841</p>
         </div>
       </div>

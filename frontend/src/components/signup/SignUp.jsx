@@ -1,13 +1,15 @@
 import './SignUp.css'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { StoreContext } from '../../context/StoreContext'
 
 const SignUp = () => {
+  const {Url_Host}=useContext(StoreContext)
   const navigate = useNavigate()
-  const Url_toregister = "http://localhost:3000/user/register"
+  const Url_toregister = `${Url_Host}/user/register`
   const [data, setdata] = useState({
     name: "",
     email: "",
@@ -40,7 +42,6 @@ const SignUp = () => {
     <div className='SignUp'>
       <form onSubmit={onSingUp}>
         <div className='SignIn_Box'>
-          {/* "X" button to close and navigate to home */}
           <FontAwesomeIcon icon={faTimes} className='close-button' onClick={() => navigate('/')} />
 
           <h1>The Fortune Hotel</h1>

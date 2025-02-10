@@ -1,4 +1,5 @@
 .Header-pic {
+    width: 100%;
     background: center/cover no-repeat;
     height: 100vh;
     display: flex;

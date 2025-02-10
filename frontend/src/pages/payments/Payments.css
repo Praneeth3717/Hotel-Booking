@@ -1,15 +1,21 @@
-.Payments{
+.Payments {
     margin: 20px;
     display: grid;
-    gap: 100px;
+    gap: 50px;
     grid-template-columns: 1fr 1fr;
 }
 
-.Billing_details{
+@media (max-width: 1024px) {
+    .Payments {
+        grid-template-columns: 1fr;
+    }
+}
+
+.Billing_details, .Your_Order {
     margin: 30px;
 }
 
-.Billing_address{
+.Billing_address, .Billing_name {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -26,36 +32,39 @@
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: calc(100% - 20px);
+    width: 100%;
 }
 
-.B_f{
+.B_f {
     display: flex;
     flex-direction: column;
 }
 
-.Billing_name{
+.Billing_name {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    justify-content: space-between;
 }
 
-.Order_image{
-    width: 60%;
-    height: 200px;
+@media (max-width: 768px) {
+    .Billing_name {
+        grid-template-columns: 1fr;
+    }
 }
 
-.Your_Order{
-    margin: 30px;
-}
-
-.Order_image img{
+.Order_image {
     width: 100%;
-    height: 200px;
+    max-width: 400px;
+    height: auto;
 }
 
-.summ{
+.Order_image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.summ {
     display: flex;
     justify-content: space-between;
 }
@@ -66,23 +75,30 @@
     cursor: pointer;
     transition: background 0.3s ease-in-out;
     width: 100%;
+    background-color: #333;
+    color: white;
+    border: none;
 }
 
 .btn:hover {
     background-color: #555;
 }
+
 .Payment_Meth h3 {
     margin-top: 20px;
     font-size: 18px;
 }
+
 .Pay {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
 }
+
 .Pay input[type="radio"] {
     display: none;
 }
+
 .Pay label {
     display: flex;
     align-items: center;
@@ -95,18 +111,29 @@
     font-weight: bold;
     cursor: pointer;
     transition: background 0.3s ease-in-out;
-}
-
-.Pay label {
     background-color: white;
     color: black;
 }
+
 .Pay input[type="radio"]:checked + label {
     background-color: #555;
-    color: black;
+    color: white;
     border-color: #555;
 }
+
 .Pay label:hover {
     background-color: #555;
     color: white;
+}
+
+@media (max-width: 600px) {
+    .Pay {
+        flex-direction: column;
+    }
+    .Pay label {
+        width: 100%;
+    }
+    .btn {
+        width: 100%;
+    }
 }

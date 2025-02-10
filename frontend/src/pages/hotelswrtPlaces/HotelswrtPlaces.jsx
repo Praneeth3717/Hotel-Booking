@@ -2,20 +2,23 @@ import './HotelswrtPlaces.css'
 import Navbar from '../../components/navbar/Navbar'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { StoreContext } from '../../context/StoreContext'
+import Footer from '../../components/footer/Footer'
 
 const HotelswrtPlaces = () => {
+  const {Url_Host}=useContext(StoreContext)
     const [hotels,sethotels]=useState([])
     const {place_name}=useParams()
     useEffect(()=>{
-        axios.get(`http://localhost:3000/hotels/getHotelswrtPlaces/${place_name}`)
+        axios.get(`${Url_Host}/hotels/getHotelswrtPlaces/${place_name}`)
         .then((response)=>{
           sethotels(response.data.data)
         })
         .catch((error)=>{
           console.log(error)
         })
-      },[place_name])
+      },[place_name,Url_Host])
   return (
     <>
     <Navbar/>
@@ -25,7 +28,7 @@ const HotelswrtPlaces = () => {
         return(
             <div className='All-Hotels' key={hotel._id}>
             <div className='Hotel-Image'>
-                <img src={`http://localhost:3000/images/${hotel.hotel_image}`} alt="Hyd" />
+                <img src={`${Url_Host}/images/${hotel.hotel_image}`} alt="Hyd" />
             </div>
             <div className='Hotel-description'>
                 <div className='Hotel-About'>
@@ -51,6 +54,7 @@ const HotelswrtPlaces = () => {
         )
       })}
     </div>
+    <Footer/>
     </>
   )
 }

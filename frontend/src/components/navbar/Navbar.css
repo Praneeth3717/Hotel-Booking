@@ -1,34 +1,66 @@
-.Navbar{
+.Navbar {
   width: 100%;
-  height:fit-content;
-  background-color:white;
-  display: grid;
-  align-items: center;
-  grid-template-columns: 2fr 3fr 0.75fr;
-  padding:1px;
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
-}
-.nav-part2{
+  height: fit-content;
+  background-color: white;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+  position: relative;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
 }
-.nav-part1-heading{
-  font-size: 25px;
+
+.nav-part1 {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.nav-part1-heading {
+  font-size: 1.5rem;
   font-weight: 900;
-  margin:15px;
+  margin: 0;
   cursor: pointer;
+  white-space: nowrap;
 }
-.nav-part2 p{
-  margin: 15px;
+
+.nav-part2 {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.nav-part2 p {
+  margin: 0 15px;
   cursor: pointer;
+  white-space: nowrap;
 }
-.nav-part3 span{
+
+.nav-part3 {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.nav-part3 span {
   margin-left: 10px;
+  white-space: nowrap;
 }
+
 .profile-container {
   display: flex;
   align-items: center;
   cursor: pointer;
   position: relative;
+}
+
+.alpha {
+  margin-left: 10px;
+  font-weight: bold;
 }
 
 .dropdown-menu {
@@ -39,7 +71,8 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  width: 100px;
+  width: 120px;
+  z-index: 10;
 }
 
 .dropdown-menu button {
@@ -54,9 +87,56 @@
 .dropdown-menu button:hover {
   background: #f0f0f0;
 }
-.nav-part3 a,.nav-part2 a {
+
+.nav-part3 a,
+.nav-part2 a {
   text-decoration: none;
   color: inherit;
 }
+@media (max-width: 768px) {
+  .Navbar {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
 
+  .nav-part1-heading {
+    font-size: 1.2rem;
+  }
 
+  .nav-part2 {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-part2.mobile-menu-open {
+    display: flex;
+  }
+
+  .nav-part2 p {
+    margin: 10px 0;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .nav-part3 {
+    margin-left: auto;
+  }
+
+  .alpha {
+    display: none;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+}
+@media (min-width: 769px) {
+  .mobile-menu-icon {
+    display: none;
+  }
+}

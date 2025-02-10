@@ -3,24 +3,26 @@ import { StoreContext } from "../../context/StoreContext";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import Navbar from '../../components/navbar/Navbar'
+import Footer from '../../components/footer/Footer'
 
 const HotelBook = () => {
   const navigate = useNavigate();
   const { hotel_location } = useParams();
   const [hotel_detail, setHotelDetail] = useState({});
   const [display_roomsleft, setDisplayRoomsLeft] = useState(false);
-  const { Room_list,Token,checkIn,checkOut,setCheckIn,setCheckOut,setGuests,guests } = useContext(StoreContext);
+  const { Room_list,Token,checkIn,checkOut,setCheckIn,setCheckOut,setGuests,guests,Url_Host} = useContext(StoreContext);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/hotels/getHotel/${hotel_location}`)
+      .get(`${Url_Host}/hotels/getHotel/${hotel_location}`)
       .then((response) => {
         setHotelDetail(response.data.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [hotel_location]);
+  }, [Url_Host,hotel_location]);
   useEffect(() => {
     sessionStorage.setItem("checkIn", checkIn);
     sessionStorage.setItem("checkOut", checkOut);
@@ -64,12 +66,14 @@ const HotelBook = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="Hotel_Book">
       <h1>EXPERIENCE INDIA WITH THE FORTUNE</h1>
       <div className="About_Hotel">
         <div className="Hotel_Image">
           <img
-            src={`http://localhost:3000/images/${hotel_detail.hotel_image}`}
+            src={`${Url_Host}/images/${hotel_detail.hotel_image}`}
             alt="Hotel"
           />
         </div>
@@ -119,7 +123,7 @@ const HotelBook = () => {
           {Room_list.map((room) => (
             <div className="Each_Stay" key={room._id}>
               <div className="Stay_image">
-                <img src={`http://localhost:3000/images/${room.image}`} alt="Room" />
+                <img src={`${Url_Host}/images/${room.image}`} alt="Room" />
               </div>
               <div className="Stay_desc">
                 <h2 className="Room-title">{room.room_type}</h2>
@@ -140,6 +144,8 @@ const HotelBook = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

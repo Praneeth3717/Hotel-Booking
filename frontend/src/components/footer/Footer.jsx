@@ -13,13 +13,13 @@ const Footer = () => {
           <h3>Quick Links</h3>
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/About">About</a></li>
+            <li><a href="/Contact">Contact</a></li>
           </ul>
         </div>
         <div className="footer-section">
           <h3>Contact Us</h3>
-          <p>Email: support@hotelbooking.com</p>
+          <p>Email: praneethchandupatla@gmail.com</p>
           <p>Phone: +919963310841</p>
         </div>
       </div>

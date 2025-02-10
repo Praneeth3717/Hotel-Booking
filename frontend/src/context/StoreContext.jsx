@@ -6,6 +6,7 @@ import { useEffect } from "react";
 export const StoreContext=createContext(null)
 
 const StoreContextProvider=(props)=>{
+    const Url_Host="http://localhost:3000"
     const [Token,setToken]= useState("")
     const [Room_list,setRoom_list]=useState([])
     const [Hotel_list,setHotel_list]=useState([])
@@ -14,10 +15,10 @@ const StoreContextProvider=(props)=>{
     const [checkOut, setCheckOut] = useState(sessionStorage.getItem("checkOut") || "");
     const [guests, setGuests] = useState(sessionStorage.getItem("guests") || 1);
     const [User,setUser]=useState({})
-    const Url_getRoom="http://localhost:3000/rooms/getRooms"
-    const Url_getHotels="http://localhost:3000/hotels/getHotels"
-    const Url_getPlaces="http://localhost:3000/hotels/getPlaces"
-    const Url_getUser="http://localhost:3000/user/getUser"
+    const Url_getRoom=`${Url_Host}/rooms/getRooms`
+    const Url_getHotels=`${Url_Host}/hotels/getHotels`
+    const Url_getPlaces=`${Url_Host}/hotels/getPlaces`
+    const Url_getUser=`${Url_Host}/user/getUser`
     const fetchData=async()=>{
         try {
             const token = localStorage.getItem("token");
@@ -49,6 +50,7 @@ const StoreContextProvider=(props)=>{
         loadData()
     },[])
     const contextValue={
+        Url_Host,
         Room_list,
         Hotel_list,
         Place_list,

@@ -1,34 +1,42 @@
-.Hotel_Book{
-    margin:20px;
+.Hotel_Book {
+    margin: 20px;
 }
-.About_Hotel{
-    width:100%;
+
+.About_Hotel {
+    width: 100%;
     height: fit-content;
     display: grid;
     grid-template-columns: 1.5fr 3fr;
+    gap: 20px;
 }
+
 .Hotel_Image {
-    height:60vh;
+    height: 60vh;
     padding: 20px;
     margin: 20px;
 }
-.Hotel_Image img{
+
+.Hotel_Image img {
     width: 100%;
-    height:100%;
+    height: 100%;
     border-radius: 10px;
+    object-fit: cover;
 }
-.Hotel_desc{
+
+.Hotel_desc {
     padding: 20px;
     margin: 20px;
 }
-.Stay_Types{
+
+.Stay_Types {
     width: 100%;
     display: flex;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     align-items: center;
 }
-.Each_Stay{
+
+.Each_Stay {
     width: 45%;
     height: fit-content;
     margin: 20px;
@@ -39,80 +47,77 @@
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
 }
-.Each_Stay:hover{
+
+.Each_Stay:hover {
     transform: scale(1.05);
 }
-.Stay_image{
+
+.Stay_image {
     width: 100%;
     object-fit: cover;
 }
-.Stay_image img{
+
+.Stay_image img {
     width: 100%;
     height: 100%;
 }
-.Stay_desc{
+
+.Stay_desc {
     padding: 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
 }
+
 .Room-title {
     font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 4px;
     margin-top: 0px;
 }
-  
+
 .Room-description {
     font-size: 0.9rem;
     color: #555;
     margin-bottom: 4px;
     margin-top: 0px;
 }
+
 .Room-rating {
     margin: 0px;
 }
+
 .hotel-rooms-left {
     color: red;
     margin: 0px;
 }
-.Room-dates{
-    display: flex;
-    flex-direction: column;
-    margin-right: 10px;
-}
-.Room-dates label {
-    font-size: 0.9rem;
-    font-weight: bold;
-    margin-bottom: 4px;
-}
-.Room-dates input {
-    padding: 6px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    margin-bottom: 6px;
-    width: 100%;
-}
-.Room-footer{
+
+.Room-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 12px;
 }
+
 .Room-price {
     font-size: 1.1rem;
 }
+
 .Room-button {
     padding: 10px 14px;
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.3s ease-in-out;
+    background: #333;
+    color: white;
+    border: none;
 }
-.Room-button:hover{
+
+.Room-button:hover {
     background: #555;
 }
+
 .booking-navbar {
     display: flex;
     gap: 20px;
@@ -123,46 +128,98 @@
     box-shadow: 0 4px 8px rgba(0, 0, 10, 0.5);
     width: fit-content;
     margin: auto;
-  }
-  
-  .booking-navbar label {
+    flex-wrap: wrap;
+}
+
+.booking-navbar label {
     display: flex;
     flex-direction: column;
     font-size: 14px;
     font-weight: 600;
     color: #333;
-  }
-  
-  .booking-navbar input {
+}
+
+.booking-navbar input {
     padding: 8px;
     border: 2px solid #ddd;
     border-radius: 5px;
     font-size: 14px;
     outline: none;
     transition: border 0.3s ease-in-out;
-  }
-  
-  .booking-navbar input:focus {
-    border-color: #007bff;
-  }
-  
-  .booking-navbar button {
+}
+
+.booking-navbar input:focus {
+    border-color: #333;
+}
+
+.booking-navbar button {
     padding: 10px 15px;
-    background-color: #007bff;
+    background-color: #333;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s ease-in-out;
-  }
-  
-  .booking-navbar button:hover {
-    background-color: #0056b3;
-  }
-  .contact p{
+}
+
+.booking-navbar button:hover {
+    background-color: #555;
+}
+
+.contact p {
     margin: 0px;
-  }
-  .alpha{
+}
+
+.alpha {
     font-size: small;
-  }
+}
+
+@media (max-width: 1024px) {
+    .About_Hotel {
+        grid-template-columns: 1fr;
+    }
+    .Hotel_Image {
+        height: 50vh;
+    }
+    .Each_Stay {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .booking-navbar {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        text-align: center;
+    }
+    .Stay_Types {
+        flex-direction: column;
+    }
+    .Each_Stay {
+        width: 100%;
+    }
+    .Hotel_Image {
+        height: 40vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .Hotel_Image {
+        height: 30vh;
+    }
+    .booking-navbar {
+        padding: 10px;
+    }
+    .Room-title {
+        font-size: 1.1rem;
+    }
+    .Room-price {
+        font-size: 1rem;
+    }
+    .Room-button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
