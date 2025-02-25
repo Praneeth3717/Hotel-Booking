@@ -39,17 +39,17 @@ This project focuses on providing a smooth and intuitive **user experience**, wi
 
 ## ✨ Features  
 
-### ✅ **User Functionalities**  
+### **User Functionalities**  
 - **Secure Authentication** (Login & Signup with JWT)  
 - **Search & Browse Hotels** (by location)  
 - **View Hotel Details** (pricing, amenities, availability)  
 - **Book Hotel Rooms**    
 
-### ✅ **Admin Functionalities**  
+### **Admin Functionalities**  
 - **Manage Hotels & Rooms** (add)  
   
 
-### ✅ **Performance & UX Enhancements**  
+### **Performance & UX Enhancements**  
 - **Fully Responsive UI** for mobile & desktop  
 - **Optimized MongoDB Queries** for faster performance  
 - **Role-Based Access Control (RBAC)** (admin & user permissions)  
