@@ -25,12 +25,12 @@ const StoreContextProvider=(props)=>{
             const config = {
                 headers: { Authorization: `Bearer ${token}` },
             };
-            const response_rooms=await axios.get(Url_getRoom);
-            setRoom_list(response_rooms.data.data)
-            const response_hotels=await axios.get(Url_getHotels)
-            setHotel_list(response_hotels.data.data)
             const response_places=await axios.get(Url_getPlaces)
             setPlace_list(response_places.data.data)
+            const response_hotels=await axios.get(Url_getHotels)
+            setHotel_list(response_hotels.data.data)
+            const response_rooms=await axios.get(Url_getRoom);
+            setRoom_list(response_rooms.data.data)
             if (token) {
                 const response_user = await axios.get(Url_getUser, config);
                 setUser(response_user.data.data);
