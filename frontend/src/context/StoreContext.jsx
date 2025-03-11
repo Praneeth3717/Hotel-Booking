@@ -4,7 +4,7 @@ import axios from 'axios'
 export const StoreContext=createContext(null)
 
 const StoreContextProvider=(props)=>{
-    const Url_Host="http://localhost:3000"
+    const Url_Host="https://hotel-booking-backend-gne4.onrender.com"
 
     const [Token,setToken]= useState("")
     const [Room_list,setRoom_list]=useState([])
