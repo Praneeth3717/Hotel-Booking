@@ -1,0 +1,22 @@
+[
+    {
+        "place_image":"Hyderabad.jpeg",
+        "place_name":"Hyderabad"
+    },
+    {
+        "place_image":"Bangalore.jpeg",
+        "place_name":"Bangalore"
+    },
+    {
+        "place_image":"Delhi.jpeg",
+        "place_name":"Delhi"
+    },
+    {
+        "place_image":"Kolkata.jpeg",
+        "place_name":"Kolkata"
+    },
+    {
+        "place_image":"Mumbai.jpeg",
+        "place_name":"Mumbai"
+    }
+]

@@ -1,11 +1,11 @@
 import './OurHotels.css'
-import { StoreContext } from '../../context/StoreContext'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import placesData from '../../data/places.json'
+import hotelsData from '../../data/hotels.json'
 
 const OurHotels = () => {
     const [active,setactive]=useState("Places")
-    const {Hotel_list,Place_list,Url_Host}=useContext(StoreContext)
   return (
     <div className='OurHotels'>
         <div className='OurHotels-Heading'>
@@ -17,11 +17,11 @@ const OurHotels = () => {
         </div>
         <div className='Display-List'>
             <div className={active!=="Places"?"Change-Content Places-List":"Places-List"}>
-                {Place_list.map((places)=>{
+                {placesData.map((places)=>{
                     return (
-                    <Link to={`/`+places.place_name} className='Card-List'  key={places._id}>
+                    <Link to={"/"+places.place_name} className='Card-List'  key={places.place_name}>
                         <div className='Image-List'>
-                            <img src={`${Url_Host}/images/${places.place_image}`} alt="hyd" />
+                            <img src={`/${places.place_image}`} alt="hyd" />
                         </div>
                         <p>{places.place_name}</p>
                     </Link>
@@ -29,11 +29,11 @@ const OurHotels = () => {
                 })}
             </div>
             <div className={active!=="AllHotels"?"Change-Content All-Hotels-List":"All-Hotels-List" }>
-                {Hotel_list.map((hotel)=>{
+                {hotelsData.map((hotel)=>{
                     return(
-                        <Link to={`/`+hotel.place_name+`/`+hotel.hotel_location+`/Book`} className='Card-List' key={hotel._id}>
+                        <Link to={`/`+hotel.place_name+`/`+hotel.hotel_location+`/Book`} className='Card-List' key={hotel.hotel_name}>
                         <div className='Image-List'>
-                        <img src={`${Url_Host}/images/${hotel.hotel_image}`} alt={hotel.hotel_name} />
+                        <img src={`${hotel.hotel_image}`} alt={hotel.hotel_name} />
                         </div>
                         <p>{hotel.place_name} - {hotel.hotel_location}</p>
                         </Link>

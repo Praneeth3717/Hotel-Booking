@@ -4,7 +4,6 @@ const {getHotels,getHotel,getPlaces,getHotelswrtPlace}=require('../controllers/h
 const HotelRouter=express.Router()
 
 HotelRouter.get('/getHotels',getHotels)
-HotelRouter.get('/getPlaces',getPlaces)
 HotelRouter.get('/getHotelswrtPlaces/:place_name',getHotelswrtPlace)
 HotelRouter.get('/getHotel/:hotel_location',getHotel)
 

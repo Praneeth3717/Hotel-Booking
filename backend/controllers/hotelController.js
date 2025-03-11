@@ -1,20 +1,12 @@
 const HotelsModel=require('../models/hotelModel')
-const PlaceModel=require('../models/placeModel')
 
-const getPlaces=async(req,res)=>{
-    try {
-        const Places=await PlaceModel.find({})
-        res.json({success:true,data:Places})
-    } catch (error) {
-        res.json({success:false,message:"Error"})
-    }
-}
 const getHotels=async(req,res)=>{
     try {
         const hotels=await HotelsModel.find({})
         res.json({success:true,data:hotels})
     } catch (error) {
-        res.json({success:false,message:"Error"})
+        console.error("Error fetching Hotels:",error);
+        res.status(500).json({success:false,message:"Failed to fetch hotels",error: error.message });
     }
 }
 const getHotelswrtPlace=async(req,res)=>{
@@ -23,7 +15,8 @@ const getHotelswrtPlace=async(req,res)=>{
         const hotelswrtPlace=await HotelsModel.find({place_name})
         res.json({success:true,data:hotelswrtPlace})
     } catch (error) {
-        res.json({success:false,message:"Error"})
+        console.error("Error fetching hotel wrt place:",error);
+        res.status(500).json({success:false,message:"Failed to fetch Hotel wrt place",error: error.message });
     }
 }
 const getHotel=async(req,res)=>{
@@ -32,8 +25,9 @@ const getHotel=async(req,res)=>{
         const gethotel=await HotelsModel.findOne({hotel_location})
         res.json({success:true,data:gethotel})
     } catch (error) {
-        res.json({success:false,message:"Error"})
+        console.error("Error fetching hotel data:",error);
+        res.status(500).json({success:false,message:"Failed to fetch Hotel ",error: error.message });
     }
 }
 
-module.exports={getHotels,getHotel,getPlaces,getHotelswrtPlace}
+module.exports={getHotels,getHotel,getHotelswrtPlace}

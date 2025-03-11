@@ -8,7 +8,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const { setToken,Url_Host } = useContext(StoreContext);
+  const { setToken,Url_Host} = useContext(StoreContext);
   const [data, setData] = useState({
     email: "",
     password: ""
@@ -31,7 +31,7 @@ const SignIn = () => {
         const token = response.data.token;
         setToken(token);
         localStorage.setItem("token", token);
-        navigate('/');
+        navigate(`/`);
       }
     } catch (error) {
       console.error("Error during login:", error);

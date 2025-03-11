@@ -10,8 +10,9 @@ import About from './pages/about/About'
 import Contact from './pages/contact/Contact'
 
 function App() {
+
   const router=createBrowserRouter([
-    {path: "/", element: <Home/> },
+    {path:"/", element: <Home/> },
     {path:"/SignIn", element:<SignIn/>},
     {path:"/SignUp",element:<SignUp/>},
     {path:"/:place_name",element:<HotelswrtPlaces/>},

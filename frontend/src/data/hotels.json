@@ -1,0 +1,53 @@
+[
+    {
+      "place_name": "Hyderabad",
+      "hotel_location": "Jubilee Hills",
+      "hotel_image": "HYD-H1.jpg"
+    },
+    {
+      "place_name": "Hyderabad",
+      "hotel_location": "Hitech City",
+      "hotel_image": "HYD-H2.jpg"
+    },
+    {
+      "place_name": "Hyderabad",
+      "hotel_location": "Uppal",
+      "hotel_image": "HYD-H3.jpg"
+    },
+    {
+      "place_name": "Bangalore",
+      "hotel_location": "Electronic City",
+      "hotel_image": "BANG-H1.jpg"
+    },
+    {
+      "place_name": "Bangalore",
+      "hotel_location": "Whitefield",
+      "hotel_image": "BANG-H2.jpg"
+    },
+    {
+      "place_name": "Bangalore",
+      "hotel_location": "Indiranagar",
+      "hotel_image": "BANG-H3.jpg"
+    },
+    {
+      "place_name": "Delhi",
+      "hotel_location": "Jor Bagh",
+      "hotel_image": "DEL-H1.jpg"
+    },
+    {
+      "place_name": "Delhi",
+      "hotel_location": "Dwaraka Sub City",
+      "hotel_image": "DEL-H2.jpg"
+    },
+    {
+      "place_name": "Mumbai",
+      "hotel_location": "Malabar Hill",
+      "hotel_image": "MUM-H1.jpg"
+    },
+    {
+      "place_name": "Kolkata",
+      "hotel_location": "Alipore",
+      "hotel_image": "KOL-H1.jpg"
+    }
+]
+  
