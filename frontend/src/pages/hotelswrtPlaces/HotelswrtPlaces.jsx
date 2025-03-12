@@ -1,10 +1,8 @@
 import './HotelswrtPlaces.css'
-import Navbar from '../../components/navbar/Navbar'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useContext, useEffect, useState } from 'react'
 import { StoreContext } from '../../context/StoreContext'
-import Footer from '../../components/footer/Footer'
 
 const HotelswrtPlaces = () => {
   const {Url_Host}=useContext(StoreContext)
@@ -21,7 +19,6 @@ const HotelswrtPlaces = () => {
       },[place_name,Url_Host])
   return (
     <>
-    <Navbar/>
     <div className='HotelswrtPlaces'>
       <h1>Experience our Hotels at {place_name}</h1>
       {hotels.map((hotel)=>{
@@ -54,7 +51,6 @@ const HotelswrtPlaces = () => {
         )
       })}
     </div>
-    <Footer/>
     </>
   )
 }

@@ -1,13 +1,19 @@
 import './App.css'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+import { lazy,Suspense } from 'react'
+
 import Home from './pages/home/Home'
-import HotelswrtPlaces from './pages/hotelswrtPlaces/HotelswrtPlaces'
-import HotelBook from './pages/hotelBook/HotelBook'
 import SignIn from './components/signin/SignIn'
 import SignUp from './components/signup/SignUp'
-import Payments from './pages/payments/Payments'
 import About from './pages/about/About'
 import Contact from './pages/contact/Contact'
+import Loading from './components/loading/Loading'
+import Navbar from './components/navbar/Navbar'
+import Footer from './components/footer/Footer'
+
+const HotelswrtPlaces=lazy(()=>import('./pages/hotelswrtPlaces/HotelswrtPlaces'))
+const HotelBook=lazy(()=>import('./pages/hotelBook/HotelBook'))
+const Payments=lazy(()=>import('./pages/payments/Payments'))
 
 function App() {
 
@@ -15,11 +21,35 @@ function App() {
     {path:"/", element: <Home/> },
     {path:"/SignIn", element:<SignIn/>},
     {path:"/SignUp",element:<SignUp/>},
-    {path:"/:place_name",element:<HotelswrtPlaces/>},
-    {path:"/:place_name/:hotel_location/Book",element:<HotelBook/>},
-    {path:"/:place_name/:hotel_location/Book/:room_type/payment",element:<Payments/>},
+    {path:"/:place_name",element:(
+      <>
+        <Navbar/>
+        <Suspense fallback={<Loading/>}>
+          <HotelswrtPlaces/>
+        </Suspense>
+        <Footer/>
+      </>
+    )},
+    {path:"/:place_name/:hotel_location/Book",element:(
+      <>
+      <Navbar/>
+      <Suspense fallback={<Loading/>}>
+        <HotelBook/>
+      </Suspense>
+      <Footer/>
+    </>
+    )},
+    {path:"/:place_name/:hotel_location/Book/:room_type/payment",element:(
+      <>
+      <Navbar/>
+      <Suspense fallback={<Loading/>}>
+        <Payments/>
+      </Suspense>
+      <Footer/>
+    </>
+    )},
     {path:"/About",element:<About/>},
-    {path:"/Contact",element:<Contact/>}
+    {path:"/Contact",element:<Contact/>},
   ])
   return (
     <RouterProvider router={router}/>

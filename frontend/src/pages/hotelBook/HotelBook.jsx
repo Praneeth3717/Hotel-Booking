@@ -3,8 +3,6 @@ import { StoreContext } from "../../context/StoreContext";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-import Navbar from '../../components/navbar/Navbar'
-import Footer from '../../components/footer/Footer'
 
 const HotelBook = () => {
   const navigate = useNavigate();
@@ -67,7 +65,6 @@ const HotelBook = () => {
 
   return (
     <>
-    <Navbar/>
     <div className="Hotel_Book">
       <h1>EXPERIENCE INDIA WITH THE FORTUNE</h1>
       <div className="About_Hotel">
@@ -144,7 +141,6 @@ const HotelBook = () => {
         </div>
       </div>
     </div>
-    <Footer/>
     </>
   );
 };
