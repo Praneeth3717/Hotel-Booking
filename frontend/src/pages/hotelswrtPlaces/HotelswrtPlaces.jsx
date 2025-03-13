@@ -3,15 +3,18 @@ import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useContext, useEffect, useState } from 'react'
 import { StoreContext } from '../../context/StoreContext'
+import Loading from '../../components/loading/Loading'
 
 const HotelswrtPlaces = () => {
   const {Url_Host}=useContext(StoreContext)
+  const [loading,setloading]=useState(true)
     const [hotels,sethotels]=useState([])
     const {place_name}=useParams()
     useEffect(()=>{
         axios.get(`${Url_Host}/hotels/getHotelswrtPlaces/${place_name}`)
         .then((response)=>{
           sethotels(response.data.data)
+          setloading(false)
         })
         .catch((error)=>{
           console.log(error)
@@ -19,7 +22,8 @@ const HotelswrtPlaces = () => {
       },[place_name,Url_Host])
   return (
     <>
-    <div className='HotelswrtPlaces'>
+    {loading?(<Loading/>):(
+      <div className='HotelswrtPlaces'>
       <h1>Experience our Hotels at {place_name}</h1>
       {hotels.map((hotel)=>{
         return(
@@ -50,7 +54,7 @@ const HotelswrtPlaces = () => {
           </div>            
         )
       })}
-    </div>
+    </div>)}
     </>
   )
 }
