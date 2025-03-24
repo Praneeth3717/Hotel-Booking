@@ -46,7 +46,7 @@ const Navbar = () => {
                 <div className='nav-part3'>
                     <div className='profile-container' onClick={() => setshowLogout(!showLogout)}>
                         <FontAwesomeIcon icon={faUser} />
-                        <span className='alpha'>{User.name}</span>
+                        {User ? <span className='alpha'>{User.name}</span> : <span className='alpha'>Guest</span>}
                         {showLogout && (
                             <div className='dropdown-menu'>
                                 <button onClick={handleLogout}><FontAwesomeIcon icon={faRightFromBracket} /> Logout</button>
