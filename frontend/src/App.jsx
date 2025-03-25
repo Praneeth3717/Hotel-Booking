@@ -1,6 +1,8 @@
 import './App.css'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import { lazy,Suspense } from 'react'
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
+import StoreContextProvider from './context/StoreContext.jsx'
 
 import Home from './pages/home/Home'
 import SignIn from './components/signin/SignIn'
@@ -51,8 +53,14 @@ function App() {
     {path:"/About",element:<About/>},
     {path:"/Contact",element:<Contact/>},
   ])
+
+  const queryClient=new QueryClient();
   return (
-    <RouterProvider router={router}/>
+    <QueryClientProvider client={queryClient}> 
+      <StoreContextProvider>
+        <RouterProvider router={router}/>
+      </StoreContextProvider>     
+    </QueryClientProvider>
   )
 }
 

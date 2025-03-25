@@ -30,30 +30,13 @@ const Contact = () => {
           <h2>Send us a Message</h2>
           <form onSubmit={handleSubmit}>
             <label>Name:</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
+            <input type="text" name="name" value={formData.name} onChange={handleChange} required/>
 
             <label>Email:</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
+            <input type="email" name="email" value={formData.email} onChange={handleChange} required/>
 
             <label>Message:</label>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-            />
+            <textarea name="message" value={formData.message} onChange={handleChange} required/>
 
             <button type="submit">Submit</button>
           </form>
