@@ -16,13 +16,6 @@ const useAuthStore=create((set)=>({
 
 }))
 
-// const useOrderStore=create((set)=>({
-//     orders:[],
-//     addOrder:(order)=>set((state)=>({
-//         orders:[...state.orders,order]
-//     }))
-// }))
-
 const useBookingStore=create((set)=>({
 
     CheckIn: sessionStorage.getItem("CheckIn") || "",
