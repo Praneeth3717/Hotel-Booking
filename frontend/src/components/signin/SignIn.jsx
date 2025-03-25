@@ -1,15 +1,15 @@
 import './Signin.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
-import { StoreContext } from '../../context/StoreContext';
+import {  useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useMutation } from '@tanstack/react-query';
 import { getLoggedIn } from '../../api/Api';
+import {useAuthStore} from '../../store/store';
 
 const SignIn = () => {
+  const setToken =useAuthStore((state)=>state.setToken)
   const navigate = useNavigate();
-  const { setToken } = useContext(StoreContext);
   const [data, setData] = useState({
     email: '',
     password: '',
@@ -25,9 +25,7 @@ const SignIn = () => {
     onSuccess: (response) => {
       if (response.success) {
         alert('User logged in');
-        const token = response.token;
-        setToken(token);
-        localStorage.setItem('token', token);
+        setToken(response.token);
         navigate(`/`);
       }
     },

@@ -1,5 +1,7 @@
 import axios from "axios"
 
+export const API_URL="https://hotel-booking-backend-gne4.onrender.com"
+
 const api=axios.create({
     baseURL:"https://hotel-booking-backend-gne4.onrender.com"
 })

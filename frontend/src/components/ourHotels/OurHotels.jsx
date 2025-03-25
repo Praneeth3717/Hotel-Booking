@@ -12,8 +12,8 @@ const OurHotels = () => {
             <p>Our Hotels</p>
         </div>
         <div className='OurHotels-List'>
-            <p onClick={()=>setactive("Places")}>Places</p>
-            <p onClick={()=>setactive("AllHotels")}>All Hotels</p>
+            <p className={active === "Places" ? "active" : ""} onClick={() => setactive("Places")}>Places</p>
+            <p className={active === "AllHotels" ? "active" : ""} onClick={() => setactive("AllHotels")}>All Hotels</p>
         </div>
         <div className='Display-List'>
             <div className={active!=="Places"?"Change-Content Places-List":"Places-List"}>

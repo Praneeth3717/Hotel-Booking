@@ -1,14 +1,11 @@
 import './HotelswrtPlaces.css';
 import { Link, useParams } from 'react-router-dom';
-import { useContext } from 'react';
-import { StoreContext } from '../../context/StoreContext';
 import Loading from '../../components/loading/Loading';
 import { useQuery } from '@tanstack/react-query';
-import { HotelswrtPlace } from '../../api/Api';
+import { HotelswrtPlace,API_URL } from '../../api/Api';
 
 const HotelswrtPlaces = () => {
   const { place_name } = useParams();
-  const { Url_Host } = useContext(StoreContext);
 
   const { data: hotels, isLoading, isError, error } = useQuery({
     queryKey: ['hotels', place_name],
@@ -24,7 +21,7 @@ const HotelswrtPlaces = () => {
       {hotels && hotels.map((hotel) => (
         <div className="All-Hotels" key={hotel._id}>
           <div className="Hotel-Image">
-            <img src={`${Url_Host}/images/${hotel.hotel_image}`} alt="Hotel" />
+            <img src={`${API_URL}/images/${hotel.hotel_image}`} alt="Hotel" />
           </div>
           <div className="Hotel-description">
             <div className="Hotel-About">

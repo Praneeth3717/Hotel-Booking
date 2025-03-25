@@ -1,20 +1,28 @@
 import './Navbar.css'
 import { useState ,useEffect} from 'react'
 import { Link} from 'react-router-dom'
-import { StoreContext } from '../../context/StoreContext'
-import { useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { useQuery } from '@tanstack/react-query'
+import { getUser } from '../../api/Api'
+import {useAuthStore} from '../../store/store'
 
 const Navbar = () => {
-    const {Token,setToken,User}=useContext(StoreContext)
+    const token = useAuthStore((state) => state.token);
+    const clearToken = useAuthStore((state) => state.clearToken);
+
     const [showLogout, setshowLogout] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+    const {data:User}=useQuery({
+        queryKey:['user'],
+        queryFn:getUser,
+        enabled: !!token
+    })
+
     const handleLogout = () => {
-        localStorage.removeItem("token")
-        setToken("")
+        clearToken()
         setshowLogout(false)
     }
 
@@ -42,7 +50,7 @@ const Navbar = () => {
                 <p><Link to={'/About'} onClick={isMobileMenuOpen ? toggleMobileMenu : null}>About</Link></p>
                 <p><Link to={'/Contact'} onClick={isMobileMenuOpen ? toggleMobileMenu : null}>Contact</Link></p>
             </div>
-            {Token ? (
+            {token ? (
                 <div className='nav-part3'>
                     <div className='profile-container' onClick={() => setshowLogout(!showLogout)}>
                         <FontAwesomeIcon icon={faUser} />

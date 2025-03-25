@@ -1,16 +1,17 @@
 import './Payments.css';
-import { StoreContext } from '../../context/StoreContext';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
-import { BookingData } from '../../api/Api';
+import { BookingData ,API_URL} from '../../api/Api';
+import { useBookingStore } from '../../store/store';
 
 const Payments = () => {
-  const { checkIn, checkOut, guests, Url_Host } = useContext(StoreContext);
+  const CheckIn=useBookingStore((state)=>state.CheckIn)
+  const CheckOut=useBookingStore((state)=>state.CheckOut)
+  const Guests=useBookingStore((state)=>state.Guests)
   const location = useLocation();
   const { Room_Type, Room_Price, Room_Image } = location.state;
   const totalPrice = (parseFloat(Room_Price) + 200 + 15.7).toFixed(2);
-  const imageUrl = `${Url_Host}/images/${Room_Image}`;
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -34,9 +35,9 @@ const Payments = () => {
     mutationFn: () =>
       BookingData({
         ...formData,
-        checkIn,
-        checkOut,
-        guests,
+        CheckIn,
+        CheckOut,
+        Guests,
         Room_Type,
         Room_Price,
         totalPrice,
@@ -135,21 +136,21 @@ const Payments = () => {
         <h2>Your Order</h2>
         <p>{Room_Type}</p>
         <div className="Order_image">
-          <img src={imageUrl} alt="Room" />
+          <img src={`${API_URL}/images/${Room_Image}`} alt="Room" />
         </div>
         <div className="Order_summ">
           <h3>Your Trip Summary</h3>
           <div className="summ">
             <p>Check-In:</p>
-            <p>{checkIn}</p>
+            <p>{CheckIn}</p>
           </div>
           <div className="summ">
             <p>Check-Out:</p>
-            <p>{checkOut}</p>
+            <p>{CheckOut}</p>
           </div>
           <div className="summ">
             <p>Guests:</p>
-            <p>{guests}</p>
+            <p>{Guests}</p>
           </div>
         </div>
         <div className="Order_Break">
