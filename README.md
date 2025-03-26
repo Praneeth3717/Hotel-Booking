@@ -3,7 +3,7 @@
 
 ## 📌 Overview  
 
-The **Hotel Booking System** is a **full-stack web application** built using the **MERN Stack** (MongoDB, Express.js, React.js, Node.js). It allows users to search for hotels by locations, view details, and make reservations seamlessly. The system also includes an **admin dashboard** for managing hotels, rooms, and user bookings efficiently.  
+The **Hotel Booking System** is a **full-stack web application** built using the **MERN Stack** (MongoDB, Express.js, React.js, Node.js). It allows users to search for hotels by locations, view details, and make reservations seamlessly. The system also includes an **admin dashboard** (currently in development) for managing hotels, rooms, and user bookings efficiently.  
 
 This project focuses on providing a smooth and intuitive **user experience**, with **secure authentication**, optimized database queries, and a **responsive UI**.  
 
@@ -18,7 +18,9 @@ This project focuses on providing a smooth and intuitive **user experience**, wi
 ### **Frontend**  
 - **React.js** – Frontend UI framework  
 - **React Router** – Client-side navigation  
-- **Axios** – HTTP requests  
+- **Axios** – HTTP requests
+- **React Query** – Data fetching and caching
+- **Zustand** – State management 
 
 ### **Backend**  
 - **Node.js** – Server-side JavaScript runtime  
@@ -52,7 +54,9 @@ This project focuses on providing a smooth and intuitive **user experience**, wi
 ### **Performance & UX Enhancements**  
 - **Fully Responsive UI** for mobile & desktop  
 - **Optimized MongoDB Queries** for faster performance  
-- **Role-Based Access Control (RBAC)** (admin & user permissions)  
+- **Role-Based Access Control (RBAC)** (admin & user permissions)
+- **React Query** Integration for efficient data fetching and caching
+- **Zustand** Integration for better state management
 
 ---
 
@@ -64,6 +68,9 @@ This project focuses on providing a smooth and intuitive **user experience**, wi
 │   ├── /src
 │   │   ├── /components
 │   │   ├── /pages
+|   |   ├── /store
+|   |   ├── /data
+|   |   ├── /api
 │   │   ├── App.js
 │   │   ├── index.js
 │   ├── package.json
